@@ -1,7 +1,8 @@
-package com.example.kmmcartdemoapp
+package com.example.kmmcartdemoapp.android
 
 import android.app.Application
-import com.example.kmmcartdemoapp.feature_cart.di.appModule
+import com.example.kmmcartdemoapp.android.di.androidPresentationModule
+import com.example.kmmcartdemoapp.android.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -11,7 +12,7 @@ class KmmCartDemoApplication : Application() {
         super.onCreate()
         startKoin{
             androidContext(this@KmmCartDemoApplication)
-            modules(appModule)
+            modules(appModule, androidPresentationModule)
         }
     }
 }

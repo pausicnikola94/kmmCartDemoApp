@@ -52,4 +52,21 @@ dependencies {
     //Glide
     implementation ("com.github.bumptech.glide:glide:4.11.0")
     kapt("com.github.bumptech.glide:compiler:4.11.0")
+
+    // Koin
+    implementation("io.insert-koin:koin-android:3.2.1")
+
+    //TODO: temo zbog DI
+    //Ktor-Client
+    implementation("io.ktor:ktor-client-core:1.6.3")
+    implementation("io.ktor:ktor-client-android:1.6.3")
+    implementation("io.ktor:ktor-client-serialization:1.6.3")
+
+    //Json seri
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+
+    //SQL Delight
+    implementation("com.squareup.sqldelight:runtime:1.5.2")
+    implementation("com.squareup.sqldelight:coroutines-extensions:1.5.3")
+    implementation("com.squareup.sqldelight:android-driver:1.5.2")
 }
