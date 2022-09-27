@@ -1,0 +1,13 @@
+CREATE TABLE checkoutOrderEntity (
+    id INTEGER NOT NULL PRIMARY KEY
+);
+
+getCheckoutOrder:
+SELECT *
+FROM checkoutOrderEntity;
+
+insertOrUpdate:
+INSERT OR REPLACE
+INTO checkoutOrderEntity
+VALUES (?);
+

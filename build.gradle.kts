@@ -9,3 +9,12 @@ plugins {
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
+
+buildscript {
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-serialization:1.7.10")
+        classpath("com.squareup.sqldelight:gradle-plugin:1.5.2")
+    }
+}
+
+

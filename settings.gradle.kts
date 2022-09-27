@@ -13,6 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "KMMCartDemoApp"
 include(":androidApp")
 include(":shared")

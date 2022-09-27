@@ -2,6 +2,8 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    kotlin("plugin.serialization")
+    id("com.squareup.sqldelight")
 }
 
 kotlin {
@@ -20,15 +22,44 @@ kotlin {
             baseName = "shared"
         }
     }
-    
+
+
+
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                // Coroutines
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+                // Koin
+                implementation("io.insert-koin:koin-android:3.2.1")
+
+                //Ktor-Client
+                implementation("io.ktor:ktor-client-core:1.6.3")
+                implementation("io.ktor:ktor-client-android:1.6.3")
+                implementation("io.ktor:ktor-client-serialization:1.6.3")
+
+                //Json seri
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+
+                //SQL Delight
+                implementation("com.squareup.sqldelight:runtime:1.5.2")
+                implementation("com.squareup.sqldelight:coroutines-extensions:1.5.3")
+            }
+        }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                //SQL Delight
+                implementation("com.squareup.sqldelight:android-driver:1.5.2")
+            }
+        }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -59,3 +90,10 @@ android {
         targetSdk = 32
     }
 }
+
+sqldelight {
+    database("KMMCartDemoAppDatabase") {
+        packageName = "com.example.kmmcartdemoapp"
+    }
+}
+

@@ -1,0 +1,24 @@
+CREATE TABLE productOrderEntity (
+    id TEXT NOT NULL PRIMARY KEY,
+    quantity INTEGER NOT NULL,
+    checkoutOrderId INTEGER NOT NULL
+);
+
+getProductOrderByCheckoutOrderId:
+SELECT *
+FROM productOrderEntity
+WHERE checkoutOrderId =: checkoutOrderId;
+
+getProductOrderById:
+SELECT *
+FROM  productOrderEntity
+WHERE id =: id;
+
+insertOrUpdate:
+INSERT OR REPLACE
+INTO productOrderEntity
+VALUES (?, ?, ?);
+
+delete:
+DELETE FROM productOrderEntity
+WHERE id =: id;
